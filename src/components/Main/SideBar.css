@@ -1,0 +1,15 @@
+.SideBar{
+    box-sizing: border-box;
+    position: absolute;
+    width: 350px;
+    height: 90vh;
+    left: 0px;
+    top: 82px;
+
+    /* grey light */
+
+    background: #FBFBFB;
+    /* border/light grey */
+
+    border-right: 1px solid #EFEFEF;
+}
