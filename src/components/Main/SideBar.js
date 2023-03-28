@@ -8,10 +8,16 @@ function SideBar() {
     <div className="SideBar">
       <Button
         color="#E0FF03"
-        css={{ width: "98%", backgroundColor: "#E0FF03", marginLeft: "3px" }}
+        auto
+        css={{
+          width: "100%",
+          backgroundColor: "#E0FF03",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
       >
-        Persönliche Informationen
-        <MdKeyboardArrowRight />
+        <span>Persönliche Informationen</span>
+        <MdKeyboardArrowRight style={{}} />
       </Button>
     </div>
   );

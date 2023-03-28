@@ -1,15 +1,12 @@
-.SideBar{
-    box-sizing: border-box;
-    position: absolute;
-    width: 350px;
-    height: 90vh;
-    left: 0px;
-    top: 82px;
+.SideBar {
+  box-sizing: border-box;
+  width: 100%;
+  height: 92vh;
+  padding: 0.4rem;
+  /* grey light */
 
-    /* grey light */
+  background: #fbfbfb;
+  /* border/light grey */
 
-    background: #FBFBFB;
-    /* border/light grey */
-
-    border-right: 1px solid #EFEFEF;
+  border-right: 1px solid #efefef;
 }
