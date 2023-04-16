@@ -1,5 +1,5 @@
 import { Card, Row, Col, Button, Text, Container } from "@nextui-org/react";
-import Image from "../../assets/man.avif";
+import Image from "../assets/man.avif";
 
 const CardComp = () => {
   return (

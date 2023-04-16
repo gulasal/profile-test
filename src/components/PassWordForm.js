@@ -31,7 +31,8 @@ function RegistrationForm() {
         >
           <Input.Password
             clearable
-            color="warning"
+            bordered
+            color="#000728"
             initialValue="123"
             helperText="Insecure password"
             type="password"
@@ -51,7 +52,8 @@ function RegistrationForm() {
         >
           <Input.Password
             clearable
-            color="warning"
+            color="#000728"
+            bordered
             initialValue="123"
             helperText="Insecure password"
             type="password"

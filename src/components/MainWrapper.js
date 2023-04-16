@@ -2,7 +2,7 @@ import React from "react";
 import SideBar from "./SideBar";
 import { Grid } from "@nextui-org/react";
 import MainPart from "./MainPart";
-import backgroundImage from "../../assets/BGImage.jpeg";
+import backgroundImage from "../assets/BlurredImage.webp";
 
 function MainWrapper() {
   return (

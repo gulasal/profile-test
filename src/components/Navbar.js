@@ -1,14 +1,29 @@
 import { Navbar, Dropdown, Avatar, Image } from "@nextui-org/react";
 import { IoIosMenu } from "react-icons/io";
-import Logo from "../../assets/man.avif";
-import Ti4fLogo from "../../assets/logo_ti4f.jpeg";
+import Logo from "../assets/man.avif";
+import Ti4fLogo from "../assets/ti4f Analytics Engine.png";
 
 function NavbarComponent() {
   return (
-    <Navbar>
+    <Navbar css={{ width: "90rem" }}>
       <Navbar.Brand>
-        <IoIosMenu style={{ fontSize: "35px" }} />
-        <Image src={Ti4fLogo} css={{ width: "9.25", height: "3rem" }} />
+        <IoIosMenu
+          style={{
+            fontSize: "35px",
+            width: "1.6rem",
+            position: "absolutr",
+            left: "4rem",
+            top: "1.5rem",
+          }}
+        />
+        <Image
+          src={Ti4fLogo}
+          css={{
+            width: "8rem",
+            height: "3rem",
+            padding: "0.1rem",
+          }}
+        />
       </Navbar.Brand>
       <Navbar.Content>
         <Navbar.Link isActive href="#">

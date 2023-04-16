@@ -10,7 +10,7 @@ import {
 } from "@nextui-org/react";
 
 function PersonalInformationForm() {
-  const personalInformation = "Personal Information";
+  const personalInformation = "Ihre persönlichen Informationen";
   return (
     <Container
       css={{
@@ -43,7 +43,14 @@ function PersonalInformationForm() {
           >
             <label for="planung">Planning</label>
             <Dropdown css={{ marginTop: "2rem" }}>
-              <Dropdown.Button auto color="none" css={{ width: "100%" }}>
+              <Dropdown.Button
+                color="#000728"
+                css={{
+                  width: "100%",
+                  border: "solid 2px #000728",
+                  backgroundColor: "#FAFAFA",
+                }}
+              >
                 Akademischer Titel
               </Dropdown.Button>
               <Dropdown.Menu aria-label="Static Actions">
@@ -61,10 +68,11 @@ function PersonalInformationForm() {
               css={{
                 marginTop: "2rem",
                 width: "100%",
+                border: "solid 2px #000728",
+                backgroundColor: "#FAFAFA",
               }}
               style={{ marginTop: "$5px" }}
               clearable
-              bordered
               labelPlaceholder="Vorname"
               initialValue="Vorname"
             />
@@ -79,7 +87,17 @@ function PersonalInformationForm() {
           >
             <label for="planung">Planung</label>
             <Dropdown>
-              <Dropdown.Button auto color="none" css={{ width: "100%" }}>
+              <Dropdown.Button
+                auto
+                color="none"
+                helperText="Required"
+                css={{
+                  width: "100%",
+                  border: "solid 2px #000728",
+                  backgroundColor: "#FAFAFA",
+                  helperText: "Required",
+                }}
+              >
                 Geschlecht
               </Dropdown.Button>
               <Dropdown.Menu aria-label="Static Actions">
@@ -91,6 +109,9 @@ function PersonalInformationForm() {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
+            <label for="required" style={{ fontSize: "0.8rem" }}>
+              *Required
+            </label>
           </Row>
         </Col>
         <Col
@@ -107,7 +128,15 @@ function PersonalInformationForm() {
           >
             <label for="planung">Planung</label>
             <Dropdown label="Name" css={{ marginTop: "2rem" }}>
-              <Dropdown.Button auto color="none" css={{ width: "100%" }}>
+              <Dropdown.Button
+                auto
+                color="none"
+                css={{
+                  width: "100%",
+                  border: "solid 2px #000728",
+                  backgroundColor: "#FAFAFA",
+                }}
+              >
                 Sprache
               </Dropdown.Button>
               <Dropdown.Menu aria-label="Static Actions">
@@ -121,20 +150,28 @@ function PersonalInformationForm() {
           </Row>
           <Row css={{ width: "16.5rem" }}>
             <Input
-              css={{ marginTop: "2rem", width: "100%" }}
+              css={{
+                marginTop: "2rem",
+                width: "100%",
+                border: "solid 2px #000728",
+                backgroundColor: "#FAFAFA",
+              }}
               style={{ marginTop: "$5px" }}
               clearable
-              bordered
               labelPlaceholder="Nachname"
               initialValue="Nachname"
             />
           </Row>
           <Row css={{ width: "16.5rem" }}>
             <Input
-              css={{ marginTop: "2rem", width: "100%" }}
-              style={{ marginTop: "$5px" }}
+              css={{
+                marginTop: "2rem",
+                width: "100%",
+                backgroundColor: "#FAFAFA",
+                border: "solid 2px #000728",
+              }}
+              color="#000728"
               clearable
-              bordered
               labelPlaceholder="Telefonnummer"
               initialValue="Telefonnummer"
             />
@@ -142,7 +179,15 @@ function PersonalInformationForm() {
         </Col>
       </Row>
       <Row justify="center" css={{ marginTop: "2rem" }}>
-        <Button color="#DEDBC6" auto css={{ width: "200px" }}>
+        <Button
+          color="#DEDBC6"
+          auto
+          css={{
+            width: "200px",
+            border: "solid 2px #B8B8B8",
+            backgroundColor: "#FAFAFA",
+          }}
+        >
           Save
         </Button>
       </Row>
