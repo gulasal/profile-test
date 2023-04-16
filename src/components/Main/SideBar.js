@@ -17,7 +17,7 @@ function SideBar() {
         }}
       >
         <span>Persönliche Informationen</span>
-        <MdKeyboardArrowRight style={{}} />
+        <MdKeyboardArrowRight />
       </Button>
     </div>
   );

@@ -7,11 +7,11 @@ import MainPart from "./MainPart";
 function MainWrapper() {
   return (
     <Grid.Container>
-      <Grid xs={2.5}>
+      <Grid>
         <SideBar />
       </Grid>
-      <Grid xs={9.5}>
-       <MainPart/>
+      <Grid xs={9.5} gap={3}>
+        <MainPart />
       </Grid>
     </Grid.Container>
   );
