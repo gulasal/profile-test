@@ -1,25 +1,38 @@
 import React from "react";
-import { Button } from "@nextui-org/react";
+import { Container, Row, Button } from "@nextui-org/react";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import "./SideBar.css";
 
 function SideBar() {
   return (
-    <div className="SideBar">
-      <Button
-        color="#E0FF03"
-        auto
-        css={{
-          width: "100%",
-          backgroundColor: "#E0FF03",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <span>Persönliche Informationen</span>
-        <MdKeyboardArrowRight />
-      </Button>
-    </div>
+    <Container
+      css={{
+        boxSizing: "border-box",
+        width: "16.5rem",
+        height: "47rem",
+        padding: "0",
+        background: "#fbfbfb",
+        borderRight: "1px solid #efefef",
+      }}
+    >
+      <Row css={{ padding: "0.3rem .5rem" }}>
+        <Button
+          color="#E0FF03"
+          auto
+          css={{
+            width: "100%",
+            backgroundColor: "#E0FF03",
+            position: "relative",
+          }}
+        >
+          <span style={{ position: "absolute", left: "1rem" }}>
+            Persönliche Informationen
+          </span>
+          <MdKeyboardArrowRight
+            style={{ position: "absolute", right: ".5rem" }}
+          />
+        </Button>
+      </Row>
+    </Container>
   );
 }
 

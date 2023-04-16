@@ -1,4 +1,4 @@
-import { Navbar, Dropdown, Avatar } from "@nextui-org/react";
+import { Navbar, Dropdown, Avatar, Image } from "@nextui-org/react";
 import { IoIosMenu } from "react-icons/io";
 import Logo from "../../assets/man.avif";
 import Ti4fLogo from "../../assets/logo_ti4f.jpeg";
@@ -8,7 +8,7 @@ function NavbarComponent() {
     <Navbar>
       <Navbar.Brand>
         <IoIosMenu style={{ fontSize: "35px" }} />
-        <image src={Ti4fLogo} />
+        <Image src={Ti4fLogo} css={{ width: "9.25", height: "3rem" }} />
       </Navbar.Brand>
       <Navbar.Content>
         <Navbar.Link isActive href="#">
