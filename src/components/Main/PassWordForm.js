@@ -8,14 +8,16 @@ function RegistrationForm() {
       style={{
         height: "13.5rem",
         width: "54rem",
-        backgroundColor: "FAFAFA",
+        backgroundColor: "#FAFAFA",
         borderRadius: "40px",
         mixBlendMode: "normal",
         boxShadow: "0px 1px 100px 10px rgba(0, 0, 0, 0.15)",
         marginTop: "1rem",
       }}
     >
-      <Row justify="center" css={{paddingTop:"1.5rem"}}>{text}</Row>
+      <Row justify="center" css={{ paddingTop: "1.5rem" }}>
+        {text}
+      </Row>
       <Row>
         <Col
           xs="6"

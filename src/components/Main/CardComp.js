@@ -8,7 +8,7 @@ const CardComp = () => {
         width: "15.5rem",
         height: "25.5rem",
         padding: "1.5rem 1.3rem",
-        backgroundColor: "FAFAFA",
+        backgroundColor: "#FAFAFA",
         borderRadius: "2.5rem",
         mixBlendMode: "normal",
         boxShadow: "0px 1px 100px 10px rgba(0, 0, 0, 0.15)",
@@ -47,13 +47,20 @@ const CardComp = () => {
           </Row>
         </Card.Footer>
       </Card>
-      <Container css={{marginTop: "1rem"}}>
-      <Col css={{lineHeight:"3px"}}>
-      <Row justify="center"><Text h4 size={18}>Thomas Brunner</Text></Row>
-      <Row justify="center"><Text p size={14}>BesteFirma GmbH</Text></Row>
-      </Col>
+      <Container css={{ marginTop: "1rem" }}>
+        <Col css={{ lineHeight: "3px" }}>
+          <Row justify="center">
+            <Text h4 size={18}>
+              Thomas Brunner
+            </Text>
+          </Row>
+          <Row justify="center">
+            <Text p size={14}>
+              BesteFirma GmbH
+            </Text>
+          </Row>
+        </Col>
       </Container>
-      
     </Container>
   );
 };

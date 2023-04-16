@@ -1,12 +1,14 @@
 import React from "react";
 import SideBar from "./SideBar";
-import "./MainWrapper.css";
 import { Grid } from "@nextui-org/react";
 import MainPart from "./MainPart";
+import backgroundImage from "../../assets/BGImage.jpeg";
 
 function MainWrapper() {
   return (
-    <Grid.Container>
+    <Grid.Container
+      css={{ background: `url(${backgroundImage}) no-repeat fixed center` }}
+    >
       <Grid>
         <SideBar />
       </Grid>
