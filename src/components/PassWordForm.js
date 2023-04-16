@@ -2,7 +2,7 @@ import React from "react";
 import { Input, Container, Button, Row, Col } from "@nextui-org/react";
 
 function RegistrationForm() {
-  const text = "Ihre personlichen Informationen";
+  const text = "Passwort ändern";
   return (
     <Container
       style={{
@@ -71,7 +71,7 @@ function RegistrationForm() {
           auto
           css={{ width: "200px", backgroundColor: "#E0FF03" }}
         >
-          Submit
+          Passwort ändern
         </Button>
       </Row>
     </Container>

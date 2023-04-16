@@ -34,14 +34,14 @@ const CardComp = () => {
           }}
         >
           <Row justify="center">
-            <Button flat auto rounded color="secondary">
+            <Button flat auto rounded css={{ backgroundColor: "#E0FF00" }}>
               <Text
-                css={{ color: "inherit" }}
-                size={12}
-                weight="bold"
-                transform="uppercase"
+                css={{ color: "#000728" }}
+                size={14}
+                weight="normal"
+                transform="Capitalcase"
               >
-                Notify Me
+                Bild auswählen
               </Text>
             </Button>
           </Row>

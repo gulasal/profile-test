@@ -41,7 +41,9 @@ function PersonalInformationForm() {
           <Row
             css={{ display: "flex", flexDirection: "column", width: "16.5rem" }}
           >
-            <label for="planung">Planning</label>
+            <label for="akademischerTitel" style={{ fontSize: "0.8rem" }}>
+              Akademischer Titel
+            </label>
             <Dropdown css={{ marginTop: "2rem" }}>
               <Dropdown.Button
                 color="#000728"
@@ -51,7 +53,7 @@ function PersonalInformationForm() {
                   backgroundColor: "#FAFAFA",
                 }}
               >
-                Akademischer Titel
+                Ing.
               </Dropdown.Button>
               <Dropdown.Menu aria-label="Static Actions">
                 <Dropdown.Item key="new">Student</Dropdown.Item>
@@ -70,11 +72,12 @@ function PersonalInformationForm() {
                 width: "100%",
                 border: "solid 2px #000728",
                 backgroundColor: "#FAFAFA",
+                fontSize: "0.8rem",
               }}
-              style={{ marginTop: "$5px" }}
               clearable
               labelPlaceholder="Vorname"
-              initialValue="Vorname"
+              initialValue="Max"
+              fontSize="0.8rem"
             />
           </Row>
           <Row
@@ -85,7 +88,9 @@ function PersonalInformationForm() {
               width: "16.5rem",
             }}
           >
-            <label for="planung">Planung</label>
+            <label for="geschlecht" style={{ fontSize: "0.8rem" }}>
+              Geschlecht
+            </label>
             <Dropdown>
               <Dropdown.Button
                 auto
@@ -98,7 +103,7 @@ function PersonalInformationForm() {
                   helperText: "Required",
                 }}
               >
-                Geschlecht
+                Mannlich
               </Dropdown.Button>
               <Dropdown.Menu aria-label="Static Actions">
                 <Dropdown.Item key="new">Man</Dropdown.Item>
@@ -110,7 +115,7 @@ function PersonalInformationForm() {
               </Dropdown.Menu>
             </Dropdown>
             <label for="required" style={{ fontSize: "0.8rem" }}>
-              *Required
+              *Pflichtfelder
             </label>
           </Row>
         </Col>
@@ -126,7 +131,9 @@ function PersonalInformationForm() {
           <Row
             css={{ display: "flex", flexDirection: "column", width: "16.5rem" }}
           >
-            <label for="planung">Planung</label>
+            <label for="sprache" style={{ fontSize: "0.8rem" }}>
+              Sprache
+            </label>
             <Dropdown label="Name" css={{ marginTop: "2rem" }}>
               <Dropdown.Button
                 auto
@@ -137,7 +144,7 @@ function PersonalInformationForm() {
                   backgroundColor: "#FAFAFA",
                 }}
               >
-                Sprache
+                Deutsch
               </Dropdown.Button>
               <Dropdown.Menu aria-label="Static Actions">
                 <Dropdown.Item key="new">Deutch</Dropdown.Item>
@@ -156,24 +163,25 @@ function PersonalInformationForm() {
                 border: "solid 2px #000728",
                 backgroundColor: "#FAFAFA",
               }}
-              style={{ marginTop: "$5px" }}
               clearable
               labelPlaceholder="Nachname"
-              initialValue="Nachname"
+              initialValue="Mustermann"
+              fontSize="0.8rem"
             />
           </Row>
-          <Row css={{ width: "16.5rem" }}>
+          <Row css={{ width: "16.5rem", fontSize: "0.5rem" }}>
             <Input
               css={{
                 marginTop: "2rem",
                 width: "100%",
                 backgroundColor: "#FAFAFA",
                 border: "solid 2px #000728",
+                fontSize: "10px",
               }}
               color="#000728"
               clearable
               labelPlaceholder="Telefonnummer"
-              initialValue="Telefonnummer"
+              initialValue="+49 170 5879634"
             />
           </Row>
         </Col>
@@ -188,7 +196,7 @@ function PersonalInformationForm() {
             backgroundColor: "#FAFAFA",
           }}
         >
-          Save
+          speichern
         </Button>
       </Row>
     </Container>
