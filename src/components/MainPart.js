@@ -4,11 +4,11 @@ import CardComp from "./CardComp";
 import PersonalInformationForm from "./PersonalInformationForm";
 import PassWordForm from "./PassWordForm";
 
-function MainPart() {
+function MainPart({ image, handleImageUpload }) {
   return (
     <Grid.Container justify="center">
       <Grid xs={3} css={{ padding: "1rem 0" }}>
-        <CardComp />
+        <CardComp image={image} handleImageUpload={handleImageUpload} />
       </Grid>
       <Grid
         xs={9}

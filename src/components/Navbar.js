@@ -1,9 +1,9 @@
 import { Navbar, Dropdown, Avatar, Image } from "@nextui-org/react";
 import { IoIosMenu } from "react-icons/io";
-import Logo from "../assets/man.avif";
+// import Logo from "../assets/man.avif";
 import Ti4fLogo from "../assets/ti4f Analytics Engine.png";
 
-function NavbarComponent() {
+function NavbarComponent({ image }) {
   return (
     <Navbar css={{ width: "90rem" }}>
       <Navbar.Brand>
@@ -43,7 +43,7 @@ function NavbarComponent() {
           </Dropdown.Menu>
         </Dropdown>
         <Navbar.Link>
-          <Avatar squared src={Logo} css={{ width: "60px", height: "60px" }} />
+          <Avatar squared src={image} css={{ width: "60px", height: "60px" }} />
         </Navbar.Link>
         <Dropdown>
           <Dropdown.Button color="light" css={{ backgroundColor: "white" }}>
