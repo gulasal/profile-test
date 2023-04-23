@@ -74,6 +74,7 @@ function PersonalInformationForm() {
                 backgroundColor: "#FAFAFA",
                 fontSize: "0.8rem",
               }}
+              animated={false}
               clearable
               labelPlaceholder="Vorname"
               initialValue="Max"
@@ -163,6 +164,7 @@ function PersonalInformationForm() {
                 border: "solid 2px #000728",
                 backgroundColor: "#FAFAFA",
               }}
+              animated={false}
               clearable
               labelPlaceholder="Nachname"
               initialValue="Mustermann"
@@ -178,6 +180,7 @@ function PersonalInformationForm() {
                 border: "solid 2px #000728",
                 fontSize: "10px",
               }}
+              animated={false}
               color="#000728"
               clearable
               labelPlaceholder="Telefonnummer"
