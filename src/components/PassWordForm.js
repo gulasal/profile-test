@@ -34,7 +34,7 @@ function RegistrationForm() {
             bordered
             color="#000728"
             initialValue="123"
-            helperText="Insecure password"
+            helpertext="Insecure password"
             type="password"
             label="Password"
             placeholder="Enter your password with eye"
@@ -55,7 +55,7 @@ function RegistrationForm() {
             color="#000728"
             bordered
             initialValue="123"
-            helperText="Insecure password"
+            helpertext="Insecure password"
             type="password"
             label="Password"
             placeholder="Enter your password with eye"

@@ -38,7 +38,7 @@ function CardComp({ firstName, lastName, image, handleImageUpload }) {
               auto
               rounded
               css={{ backgroundColor: "#E0FF00" }}
-              onClick={() => {
+              onPress={() => {
                 document.querySelector("#image-upload").click();
               }}
             >
@@ -69,7 +69,7 @@ function CardComp({ firstName, lastName, image, handleImageUpload }) {
             </Text>
           </Row>
           <Row justify="center">
-            <Text p size={14}>
+            <Text h6 size={14}>
               BesteFirma GmbH
             </Text>
           </Row>

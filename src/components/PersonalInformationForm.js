@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   Container,
   Col,
@@ -9,8 +10,6 @@ import {
   Button,
 } from "@nextui-org/react";
 
-// (e) => setName(e.target.value);
-
 function PersonalInformationForm({
   firstName,
   lastName,
@@ -19,13 +18,29 @@ function PersonalInformationForm({
 }) {
   const personalInformation = "Ihre persönlichen Informationen";
 
-  const [academicTitle, setAcademicTitle] = useState("Ing.");
+  const [academicTitle, setAcademicTitle] = useState("prof");
   const [tempFirstName, setTempFirstName] = useState(firstName);
   const [tempLastName, setTempLastName] = useState(lastName);
   const [gender, setGender] = useState("Männlich");
   const [language, setLanguage] = useState("Deutsch");
-
   const [phoneNumber, setPhoneNumber] = useState("+49 170 5879634");
+
+  const saveData = () => {
+    const data = {
+      academicTitle,
+      firstName: tempFirstName,
+      lastName: tempLastName,
+      gender,
+      language,
+      phoneNumber,
+    };
+    localStorage.setItem("personalData", JSON.stringify(data));
+    console.log("selected");
+  };
+
+  const handleDropdownChange = (selectedOptions) => {
+    console.log("handleDropdownChange", selectedOptions);
+  };
 
   return (
     <Container
@@ -61,9 +76,14 @@ function PersonalInformationForm({
               width: "16.5rem",
             }}
           >
-            <label for="akademischerTitel" style={{ fontSize: "0.8rem" }}>
-              {academicTitle}
+            <label
+              htmlFor="akademischerTitel"
+              id="akademischerTitel"
+              style={{ fontSize: "0.8rem" }}
+            >
+              Akademischer Title
             </label>
+
             <Dropdown css={{ marginTop: "2rem" }}>
               <Dropdown.Button
                 color="#000728"
@@ -72,8 +92,9 @@ function PersonalInformationForm({
                   border: "solid 2px #000728",
                   backgroundColor: "#FAFAFA",
                 }}
+                onChange={(e) => setAcademicTitle(e.target.value)}
               >
-                {language}
+                {academicTitle}
               </Dropdown.Button>
               <Dropdown.Menu aria-label="Static Actions">
                 <Dropdown.Item key="new">Student</Dropdown.Item>
@@ -110,20 +131,21 @@ function PersonalInformationForm({
               width: "16.5rem",
             }}
           >
-            <label for="geschlecht" style={{ fontSize: "0.8rem" }}>
+            <label htmlFor="geschlecht" style={{ fontSize: "0.8rem" }}>
               {gender}
             </label>
             <Dropdown>
               <Dropdown.Button
                 auto
                 color="none"
-                helperText="Required"
+                helpertext="Required"
                 css={{
                   width: "100%",
                   border: "solid 2px #000728",
                   backgroundColor: "#FAFAFA",
-                  helperText: "Required",
+                  helpertext: "Required",
                 }}
+                onChange={(e) => setGender(e.target.value)}
               >
                 Mannlich
               </Dropdown.Button>
@@ -136,7 +158,7 @@ function PersonalInformationForm({
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <label for="required" style={{ fontSize: "0.8rem" }}>
+            <label htmlFor="required" style={{ fontSize: "0.8rem" }}>
               *Pflichtfelder
             </label>
           </Row>
@@ -157,8 +179,8 @@ function PersonalInformationForm({
               width: "16.5rem",
             }}
           >
-            <label for="sprache" style={{ fontSize: "0.8rem" }}>
-              {language}
+            <label htmlFor="sprache" style={{ fontSize: "0.8rem" }}>
+              Sprache
             </label>
             <Dropdown label="Name" css={{ marginTop: "2rem" }}>
               <Dropdown.Button
@@ -169,8 +191,9 @@ function PersonalInformationForm({
                   border: "solid 2px #000728",
                   backgroundColor: "#FAFAFA",
                 }}
+                onChange={(e) => setLanguage(e.target.value)}
               >
-                Deutsch
+                {language}
               </Dropdown.Button>
               <Dropdown.Menu aria-label="Static Actions">
                 <Dropdown.Item key="new">Deutch</Dropdown.Item>
@@ -211,6 +234,7 @@ function PersonalInformationForm({
               clearable
               labelPlaceholder="Telefonnummer"
               initialValue={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </Row>
         </Col>
@@ -225,10 +249,13 @@ function PersonalInformationForm({
             border: "solid 2px #B8B8B8",
             backgroundColor: "#FAFAFA",
           }}
-          onClick={() => {
+          onPress={() => {
             setFirstName(tempFirstName);
             setLastName(tempLastName);
+            saveData();
+            console.log("locally saved");
           }}
+          onChange={handleDropdownChange}
         >
           speichern
         </Button>
