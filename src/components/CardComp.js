@@ -1,19 +1,27 @@
 import React from "react";
 import { Card, Row, Col, Button, Text, Container } from "@nextui-org/react";
 
-function CardComp({ image, handleImageUpload }) {
+const containerStyles = {
+  width: "15.5rem",
+  height: "25.5rem",
+  padding: "1.5rem 1.3rem",
+  backgroundColor: "#FAFAFA",
+  borderRadius: "2.5rem",
+  mixBlendMode: "normal",
+  boxShadow: "0px 1px 100px 10px rgba(0, 0, 0, 0.15)",
+};
+
+const cardFooterStyles = {
+  position: "absolute",
+  bgBlur: "#ffffff66",
+  borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
+  bottom: 0,
+  zIndex: 1,
+};
+
+function CardComp({ firstName, lastName, image, handleImageUpload }) {
   return (
-    <Container
-      css={{
-        width: "15.5rem",
-        height: "25.5rem",
-        padding: "1.5rem 1.3rem",
-        backgroundColor: "#FAFAFA",
-        borderRadius: "2.5rem",
-        mixBlendMode: "normal",
-        boxShadow: "0px 1px 100px 10px rgba(0, 0, 0, 0.15)",
-      }}
-    >
+    <Container css={containerStyles}>
       <Card css={{ w: "13rem", h: "16.75rem" }}>
         <Card.Body css={{ p: 0 }}>
           <Card.Image
@@ -23,16 +31,7 @@ function CardComp({ image, handleImageUpload }) {
             alt="Card example background"
           />
         </Card.Body>
-        <Card.Footer
-          isBlurred
-          css={{
-            position: "absolute",
-            bgBlur: "#ffffff66",
-            borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
-            bottom: 0,
-            zIndex: 1,
-          }}
-        >
+        <Card.Footer isBlurred css={cardFooterStyles}>
           <Row justify="center">
             <Button
               flat
@@ -66,7 +65,7 @@ function CardComp({ image, handleImageUpload }) {
         <Col css={{ lineHeight: "3px" }}>
           <Row justify="center">
             <Text h4 size={18}>
-              Thomas Brunner
+              {firstName} {lastName}
             </Text>
           </Row>
           <Row justify="center">

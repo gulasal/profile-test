@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Col,
@@ -9,8 +9,24 @@ import {
   Button,
 } from "@nextui-org/react";
 
-function PersonalInformationForm() {
+// (e) => setName(e.target.value);
+
+function PersonalInformationForm({
+  firstName,
+  lastName,
+  setFirstName,
+  setLastName,
+}) {
   const personalInformation = "Ihre persönlichen Informationen";
+
+  const [academicTitle, setAcademicTitle] = useState("Ing.");
+  const [tempFirstName, setTempFirstName] = useState(firstName);
+  const [tempLastName, setTempLastName] = useState(lastName);
+  const [gender, setGender] = useState("Männlich");
+  const [language, setLanguage] = useState("Deutsch");
+
+  const [phoneNumber, setPhoneNumber] = useState("+49 170 5879634");
+
   return (
     <Container
       css={{
@@ -39,10 +55,14 @@ function PersonalInformationForm() {
           }}
         >
           <Row
-            css={{ display: "flex", flexDirection: "column", width: "16.5rem" }}
+            css={{
+              display: "flex",
+              flexDirection: "column",
+              width: "16.5rem",
+            }}
           >
             <label for="akademischerTitel" style={{ fontSize: "0.8rem" }}>
-              Akademischer Titel
+              {academicTitle}
             </label>
             <Dropdown css={{ marginTop: "2rem" }}>
               <Dropdown.Button
@@ -53,7 +73,7 @@ function PersonalInformationForm() {
                   backgroundColor: "#FAFAFA",
                 }}
               >
-                Ing.
+                {language}
               </Dropdown.Button>
               <Dropdown.Menu aria-label="Static Actions">
                 <Dropdown.Item key="new">Student</Dropdown.Item>
@@ -77,8 +97,9 @@ function PersonalInformationForm() {
               animated={false}
               clearable
               labelPlaceholder="Vorname"
-              initialValue="Max"
+              initialValue={firstName}
               fontSize="0.8rem"
+              onChange={(e) => setTempFirstName(e.target.value)}
             />
           </Row>
           <Row
@@ -90,7 +111,7 @@ function PersonalInformationForm() {
             }}
           >
             <label for="geschlecht" style={{ fontSize: "0.8rem" }}>
-              Geschlecht
+              {gender}
             </label>
             <Dropdown>
               <Dropdown.Button
@@ -130,10 +151,14 @@ function PersonalInformationForm() {
           }}
         >
           <Row
-            css={{ display: "flex", flexDirection: "column", width: "16.5rem" }}
+            css={{
+              display: "flex",
+              flexDirection: "column",
+              width: "16.5rem",
+            }}
           >
             <label for="sprache" style={{ fontSize: "0.8rem" }}>
-              Sprache
+              {language}
             </label>
             <Dropdown label="Name" css={{ marginTop: "2rem" }}>
               <Dropdown.Button
@@ -167,8 +192,9 @@ function PersonalInformationForm() {
               animated={false}
               clearable
               labelPlaceholder="Nachname"
-              initialValue="Mustermann"
+              initialValue={lastName}
               fontSize="0.8rem"
+              onChange={(e) => setTempLastName(e.target.value)}
             />
           </Row>
           <Row css={{ width: "16.5rem", fontSize: "0.5rem" }}>
@@ -184,19 +210,24 @@ function PersonalInformationForm() {
               color="#000728"
               clearable
               labelPlaceholder="Telefonnummer"
-              initialValue="+49 170 5879634"
+              initialValue={phoneNumber}
             />
           </Row>
         </Col>
       </Row>
       <Row justify="center" css={{ marginTop: "2rem" }}>
         <Button
+          type="submit"
           color="#DEDBC6"
           auto
           css={{
             width: "200px",
             border: "solid 2px #B8B8B8",
             backgroundColor: "#FAFAFA",
+          }}
+          onClick={() => {
+            setFirstName(tempFirstName);
+            setLastName(tempLastName);
           }}
         >
           speichern

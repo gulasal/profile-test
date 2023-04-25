@@ -3,7 +3,7 @@ import { IoIosMenu } from "react-icons/io";
 // import Logo from "../assets/man.avif";
 import Ti4fLogo from "../assets/ti4f Analytics Engine.png";
 
-function NavbarComponent({ image }) {
+function NavbarComponent({ image, firstName, lastName }) {
   return (
     <Navbar css={{ width: "90rem" }}>
       <Navbar.Brand>
@@ -47,7 +47,7 @@ function NavbarComponent({ image }) {
         </Navbar.Link>
         <Dropdown>
           <Dropdown.Button color="light" css={{ backgroundColor: "white" }}>
-            Full Name
+            {firstName} {lastName}
           </Dropdown.Button>
           <Dropdown.Menu aria-label="Static Actions">
             <Dropdown.Item key="new">Account</Dropdown.Item>

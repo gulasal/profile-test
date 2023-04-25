@@ -7,6 +7,10 @@ import "./App.css";
 
 function App(props) {
   const [image, setImage] = useState(profilePic);
+  const [firstName, setFirstName] = useState("Tomas");
+  const [lastName, setLastName] = useState("Brunner");
+
+  //edit image in Cardcomp and Navbar
   const handleImageUpload = (e) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -14,10 +18,24 @@ function App(props) {
     };
     reader.readAsDataURL(e.target.files[0]);
   };
+
+  //edit user name in CardComp and Navbar
+
   return (
     <NextUIProvider>
-      <NavbarComponent image={image} />
-      <MainWrapper image={image} handleImageUpload={handleImageUpload} />
+      <NavbarComponent
+        image={image}
+        firstName={firstName}
+        lastName={lastName}
+      />
+      <MainWrapper
+        image={image}
+        handleImageUpload={handleImageUpload}
+        firstName={firstName}
+        lastName={lastName}
+        setFirstName={setFirstName}
+        setLastName={setLastName}
+      />
     </NextUIProvider>
   );
 }
