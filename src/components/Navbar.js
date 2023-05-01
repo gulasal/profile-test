@@ -1,9 +1,17 @@
+import { React, useState, useMemo } from "react";
 import { Navbar, Dropdown, Avatar, Image } from "@nextui-org/react";
 import { IoIosMenu } from "react-icons/io";
 // import Logo from "../assets/man.avif";
 import Ti4fLogo from "../assets/ti4f Analytics Engine.png";
 
 function NavbarComponent({ image, firstName, lastName }) {
+  const [sprache, setSprache] = useState(new Set(["DE"]));
+
+  const selectedValueSprache = useMemo(
+    () => Array.from(sprache).join(", ").replaceAll("_", " "),
+    [sprache]
+  );
+
   return (
     <Navbar css={{ width: "90rem" }}>
       <Navbar.Brand>
@@ -35,11 +43,18 @@ function NavbarComponent({ image, firstName, lastName }) {
       <Navbar.Content gap="0">
         <Dropdown>
           <Dropdown.Button css={{ backgroundColor: "white", color: "black" }}>
-            DE
+            {selectedValueSprache}
           </Dropdown.Button>
-          <Dropdown.Menu aria-label="Static Actions">
-            <Dropdown.Item key="new">DE</Dropdown.Item>
-            <Dropdown.Item key="copy">ENG</Dropdown.Item>
+          <Dropdown.Menu
+            aria-label="Single selection actions"
+            color="secondary"
+            disallowEmptySelection
+            selectionMode="single"
+            selectedKeys={sprache}
+            onSelectionChange={setSprache}
+          >
+            <Dropdown.Item key="DE">DE</Dropdown.Item>
+            <Dropdown.Item key="ENG">ENG</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <Navbar.Link>

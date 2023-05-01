@@ -18,22 +18,35 @@ function PersonalInformationForm({
 }) {
   const personalInformation = "Ihre persönlichen Informationen";
 
-  const [academicTitle, setAcademicTitle] = useState("prof");
+  const [selected, setSelected] = useState(new Set(["Student"]));
   const [tempFirstName, setTempFirstName] = useState(firstName);
   const [tempLastName, setTempLastName] = useState(lastName);
-  const [gender, setGender] = useState("Männlich");
-  const [language, setLanguage] = useState("Deutsch");
+  const [gender, setGender] = useState(new Set(["Männlich"]));
+  const [language, setLanguage] = useState(new Set(["Deutsch"]));
   const [phoneNumber, setPhoneNumber] = useState("+49 170 5879634");
+
+  const selectedValueAkademischeTitle = React.useMemo(
+    () => Array.from(selected).join(", ").replaceAll("_", " "),
+    [selected]
+  );
+  const selectedValueGender = React.useMemo(
+    () => Array.from(gender).join(", ").replaceAll("_", " "),
+    [gender]
+  );
+  const selectedValueLanguage = React.useMemo(
+    () => Array.from(language).join(",").replaceAll("_", " "),
+    [language]
+  );
 
   const saveData = () => {
     const data = {
-      academicTitle,
       firstName: tempFirstName,
       lastName: tempLastName,
       gender,
       language,
       phoneNumber,
     };
+
     localStorage.setItem("personalData", JSON.stringify(data));
     console.log("selected");
   };
@@ -43,6 +56,7 @@ function PersonalInformationForm({
   };
 
   return (
+    //Main Container
     <Container
       css={{
         borderRadius: "40px",
@@ -92,17 +106,20 @@ function PersonalInformationForm({
                   border: "solid 2px #000728",
                   backgroundColor: "#FAFAFA",
                 }}
-                onChange={(e) => setAcademicTitle(e.target.value)}
               >
-                {academicTitle}
+                {selectedValueAkademischeTitle}
               </Dropdown.Button>
-              <Dropdown.Menu aria-label="Static Actions">
-                <Dropdown.Item key="new">Student</Dropdown.Item>
-                <Dropdown.Item key="copy">Pr</Dropdown.Item>
-                <Dropdown.Item key="edit">Dr</Dropdown.Item>
-                <Dropdown.Item key="delete" color="error">
-                  Delete file
-                </Dropdown.Item>
+              <Dropdown.Menu
+                aria-label="Single selection actions"
+                color="secondary"
+                disallowEmptySelection
+                selectionMode="single"
+                selectedKeys={selected}
+                onSelectionChange={setSelected}
+              >
+                <Dropdown.Item key="Student">Student</Dropdown.Item>
+                <Dropdown.Item key="Pr">Pr</Dropdown.Item>
+                <Dropdown.Item key="Dr">Dr</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Row>
@@ -132,7 +149,7 @@ function PersonalInformationForm({
             }}
           >
             <label htmlFor="geschlecht" style={{ fontSize: "0.8rem" }}>
-              {gender}
+              Geschlecht
             </label>
             <Dropdown>
               <Dropdown.Button
@@ -145,17 +162,20 @@ function PersonalInformationForm({
                   backgroundColor: "#FAFAFA",
                   helpertext: "Required",
                 }}
-                onChange={(e) => setGender(e.target.value)}
               >
-                Mannlich
+                {selectedValueGender}
               </Dropdown.Button>
-              <Dropdown.Menu aria-label="Static Actions">
-                <Dropdown.Item key="new">Man</Dropdown.Item>
-                <Dropdown.Item key="copy">Woman</Dropdown.Item>
-                <Dropdown.Item key="edit">N/A</Dropdown.Item>
-                <Dropdown.Item key="delete" color="error">
-                  Delete file
-                </Dropdown.Item>
+              <Dropdown.Menu
+                aria-label="Single selection actions"
+                color="secondary"
+                disallowEmptySelection
+                selectionMode="single"
+                selectedKeys={gender}
+                onSelectionChange={setGender}
+              >
+                <Dropdown.Item key="Man">Man</Dropdown.Item>
+                <Dropdown.Item key="Woman">Woman</Dropdown.Item>
+                <Dropdown.Item key="N/A">N/A</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
             <label htmlFor="required" style={{ fontSize: "0.8rem" }}>
@@ -191,16 +211,19 @@ function PersonalInformationForm({
                   border: "solid 2px #000728",
                   backgroundColor: "#FAFAFA",
                 }}
-                onChange={(e) => setLanguage(e.target.value)}
               >
-                {language}
+                {selectedValueLanguage}
               </Dropdown.Button>
-              <Dropdown.Menu aria-label="Static Actions">
-                <Dropdown.Item key="new">Deutch</Dropdown.Item>
-                <Dropdown.Item key="copy">English</Dropdown.Item>
-                <Dropdown.Item key="delete" color="error">
-                  Delete file
-                </Dropdown.Item>
+              <Dropdown.Menu
+                aria-label="Single selection actions"
+                color="secondary"
+                disallowEmptySelection
+                selectionMode="single"
+                selectedKeys={language}
+                onSelectionChange={setLanguage}
+              >
+                <Dropdown.Item key="Deutch">Deutch</Dropdown.Item>
+                <Dropdown.Item key="English">English</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Row>

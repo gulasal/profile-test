@@ -19,8 +19,6 @@ function App(props) {
     reader.readAsDataURL(e.target.files[0]);
   };
 
-  //edit user name in CardComp and Navbar
-
   return (
     <NextUIProvider>
       <NavbarComponent
