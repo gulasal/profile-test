@@ -1,8 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input, Container, Button, Row, Col } from "@nextui-org/react";
 
-function RegistrationForm() {
+function PasswordForm() {
   const text = "Passwort ändern";
+
+  const [password, setPassword] = useState("");
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handlePasswordChangeClick = () => {
+    // Do something with the password value, e.g. save it to a database
+    console.log("Password changed: ", password);
+
+    // Implement database connection and query to save password here
+    // const url = "your_database_url_here";
+    // const data = { password: password };
+
+    // fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log("Success:", data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error:", error);
+    //   });
+    //   console.log("Password changed: ", password);
+  };
+
   return (
     <Container
       style={{
@@ -38,6 +70,7 @@ function RegistrationForm() {
             type="password"
             label="Password"
             placeholder="Enter your password with eye"
+            value={password}
           />
         </Col>
         <Col
@@ -59,6 +92,8 @@ function RegistrationForm() {
             type="password"
             label="Password"
             placeholder="Enter your password with eye"
+            value={password}
+            onChange={handlePasswordChange}
           />
         </Col>
       </Row>
@@ -70,6 +105,7 @@ function RegistrationForm() {
           color="#E0FF03"
           auto
           css={{ width: "200px", backgroundColor: "#E0FF03" }}
+          onClick={handlePasswordChangeClick}
         >
           Passwort ändern
         </Button>
@@ -78,4 +114,4 @@ function RegistrationForm() {
   );
 }
 
-export default RegistrationForm;
+export default PasswordForm;

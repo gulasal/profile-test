@@ -13,7 +13,7 @@ function NavbarComponent({ image, firstName, lastName }) {
   );
 
   return (
-    <Navbar css={{ width: "90rem" }}>
+    <Navbar css={{ width: "90rem", padding: "0" }}>
       <Navbar.Brand>
         <IoIosMenu
           style={{

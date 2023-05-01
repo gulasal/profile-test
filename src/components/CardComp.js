@@ -69,7 +69,7 @@ function CardComp({ firstName, lastName, image, handleImageUpload }) {
             </Text>
           </Row>
           <Row justify="center">
-            <Text h6 size={14}>
+            <Text h6 size={14} css={{ marginTop: "1rem" }}>
               BesteFirma GmbH
             </Text>
           </Row>

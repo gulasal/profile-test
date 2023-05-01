@@ -18,7 +18,7 @@ function PersonalInformationForm({
 }) {
   const personalInformation = "Ihre persönlichen Informationen";
 
-  const [selected, setSelected] = useState(new Set(["Student"]));
+  const [title, setTitle] = useState(new Set(["Student"]));
   const [tempFirstName, setTempFirstName] = useState(firstName);
   const [tempLastName, setTempLastName] = useState(lastName);
   const [gender, setGender] = useState(new Set(["Männlich"]));
@@ -26,8 +26,8 @@ function PersonalInformationForm({
   const [phoneNumber, setPhoneNumber] = useState("+49 170 5879634");
 
   const selectedValueAkademischeTitle = React.useMemo(
-    () => Array.from(selected).join(", ").replaceAll("_", " "),
-    [selected]
+    () => Array.from(title).join(", ").replaceAll("_", " "),
+    [title]
   );
   const selectedValueGender = React.useMemo(
     () => Array.from(gender).join(", ").replaceAll("_", " "),
@@ -40,6 +40,7 @@ function PersonalInformationForm({
 
   const saveData = () => {
     const data = {
+      title,
       firstName: tempFirstName,
       lastName: tempLastName,
       gender,
@@ -114,8 +115,8 @@ function PersonalInformationForm({
                 color="secondary"
                 disallowEmptySelection
                 selectionMode="single"
-                selectedKeys={selected}
-                onSelectionChange={setSelected}
+                selectedKeys={title}
+                onSelectionChange={setTitle}
               >
                 <Dropdown.Item key="Student">Student</Dropdown.Item>
                 <Dropdown.Item key="Pr">Pr</Dropdown.Item>
