@@ -1,0 +1,11 @@
+{
+  "PersonalInformation": "Ihre persönlichen Informationen",
+  "academicTitle": "Akademischer Titel",
+  "firstname": "Vorname",
+  "lastname": "Nachname",
+  "gender": "Geschlecht",
+  "required": "*Pflichtfelder",
+  "language": "Sprache",
+  "phoneNumber": "Telefonnummer",
+  "save": "Speichern"
+}

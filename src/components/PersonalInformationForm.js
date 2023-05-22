@@ -1,14 +1,6 @@
 import React, { useState } from "react";
-
-import {
-  Container,
-  Col,
-  Row,
-  Dropdown,
-  Input,
-  Text,
-  Button,
-} from "@nextui-org/react";
+import { Col, Row, Dropdown, Input, Text, Button } from "@nextui-org/react";
+import { useTranslation } from "react-i18next";
 
 function PersonalInformationForm({
   firstName,
@@ -16,6 +8,7 @@ function PersonalInformationForm({
   setFirstName,
   setLastName,
 }) {
+  const { t } = useTranslation(["personalInformationForm"]);
   const personalInformation = "Ihre persönlichen Informationen";
 
   const [title, setTitle] = useState(new Set(["Student"]));
@@ -38,18 +31,19 @@ function PersonalInformationForm({
     [language]
   );
 
-  const saveData = () => {
+  const saveData = (event) => {
+    event.preventDefault();
     const data = {
-      title,
+      title: title,
       firstName: tempFirstName,
       lastName: tempLastName,
-      gender,
-      language,
-      phoneNumber,
+      gender: gender,
+      language: language,
+      phoneNumber: phoneNumber,
     };
 
     localStorage.setItem("personalData", JSON.stringify(data));
-    console.log("selected");
+    console.log(data);
   };
 
   const handleDropdownChange = (selectedOptions) => {
@@ -58,8 +52,9 @@ function PersonalInformationForm({
 
   return (
     //Main Container
-    <Container
-      css={{
+    <form
+      onSubmit={saveData}
+      style={{
         borderRadius: "40px",
         width: "54rem",
         height: "25.5rem",
@@ -96,7 +91,7 @@ function PersonalInformationForm({
               id="akademischerTitel"
               style={{ fontSize: "0.8rem" }}
             >
-              Akademischer Title
+              {t("academicTitle")}
             </label>
 
             <Dropdown css={{ marginTop: "2rem" }}>
@@ -135,7 +130,7 @@ function PersonalInformationForm({
               }}
               animated={false}
               clearable
-              labelPlaceholder="Vorname"
+              labelPlaceholder={t("firstname")}
               initialValue={firstName}
               fontSize="0.8rem"
               onChange={(e) => setTempFirstName(e.target.value)}
@@ -150,7 +145,7 @@ function PersonalInformationForm({
             }}
           >
             <label htmlFor="geschlecht" style={{ fontSize: "0.8rem" }}>
-              Geschlecht
+              {t("gender")}
             </label>
             <Dropdown>
               <Dropdown.Button
@@ -180,7 +175,7 @@ function PersonalInformationForm({
               </Dropdown.Menu>
             </Dropdown>
             <label htmlFor="required" style={{ fontSize: "0.8rem" }}>
-              *Pflichtfelder
+              {t("required")}
             </label>
           </Row>
         </Col>
@@ -201,7 +196,7 @@ function PersonalInformationForm({
             }}
           >
             <label htmlFor="sprache" style={{ fontSize: "0.8rem" }}>
-              Sprache
+              {t("language")}
             </label>
             <Dropdown label="Name" css={{ marginTop: "2rem" }}>
               <Dropdown.Button
@@ -238,7 +233,7 @@ function PersonalInformationForm({
               }}
               animated={false}
               clearable
-              labelPlaceholder="Nachname"
+              labelPlaceholder={t("lastname")}
               initialValue={lastName}
               fontSize="0.8rem"
               onChange={(e) => setTempLastName(e.target.value)}
@@ -256,7 +251,7 @@ function PersonalInformationForm({
               animated={false}
               color="#000728"
               clearable
-              labelPlaceholder="Telefonnummer"
+              labelPlaceholder={t("phoneNumber")}
               initialValue={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
@@ -276,15 +271,13 @@ function PersonalInformationForm({
           onPress={() => {
             setFirstName(tempFirstName);
             setLastName(tempLastName);
-            saveData();
-            console.log("locally saved");
           }}
           onChange={handleDropdownChange}
         >
-          speichern
+          {t("save")}
         </Button>
       </Row>
-    </Container>
+    </form>
   );
 }
 
