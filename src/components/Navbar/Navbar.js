@@ -2,7 +2,7 @@ import { React, useEffect } from "react";
 
 import { Navbar, Dropdown, Avatar, Image } from "@nextui-org/react";
 import { IoIosMenu } from "react-icons/io";
-import Ti4fLogo from "../assets/ti4f Analytics Engine.png";
+import Ti4fLogo from "../../assets/ti4f Analytics Engine.png";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import "./Dropdown.css";
@@ -45,11 +45,11 @@ function NavbarComponent({ image, firstName, lastName }) {
         />
       </Navbar.Brand>
       <Navbar.Content>
-        <Navbar.Link isActive href="#">
+        <Navbar.Link isActive href="/ti4f-store">
           {t("ti4f-store")}
         </Navbar.Link>
-        <Navbar.Link href="#">{t("my-apps")}</Navbar.Link>
-        <Navbar.Link href="#">{t("data-center")}</Navbar.Link>
+        <Navbar.Link href="my-apps">{t("my-apps")}</Navbar.Link>
+        <Navbar.Link href="data-center">{t("data-center")}</Navbar.Link>
       </Navbar.Content>
       <Navbar.Content gap="0">
         <nav style={{ display: "flex", alignItems: "center" }}>
