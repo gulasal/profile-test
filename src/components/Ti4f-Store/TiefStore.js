@@ -10,7 +10,7 @@ const TiefStore = () => {
   const [selected2, setSelected2] = useState("");
   return (
     <div>
-      <div className="kategorie-wrapper">
+      <div className="kategorie-wrapper" style={{}}>
         <div style={{ height: "15%" }}>
           <Ti4fDropdown
             selected1={selected1}

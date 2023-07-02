@@ -36,7 +36,7 @@ const Ti4fDropdown = ({ selected1, selected2, setSelected1, setSelected2 }) => {
   return (
     <div style={{ display: "flex" }} className="dropdown-container">
       <Dropdown>
-        <Dropdown.Button flat color="success" className="dropdown-button">
+        <Dropdown.Button className="dropdown-button" flat>
           {selected1Value || "Kategorie"}
         </Dropdown.Button>
         <Dropdown.Menu

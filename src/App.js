@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PersonalInformationPage from "./pages/PersonalInformationPage";
 import Ti4fStorePage from "./pages/Ti4fStorePage";
 import "./App.css";
+import MeckerAppInfoPage from "./pages/MeckerAppInfoPage";
 
 function App(props) {
   //translation
@@ -59,6 +60,20 @@ function App(props) {
                     lastName={lastName}
                   />
                   <Ti4fStorePage />
+                </>
+              }
+            />
+            <Route
+              path="/mecker-app"
+              exact
+              element={
+                <>
+                  <NavbarComponent
+                    image={image}
+                    firstName={firstName}
+                    lastName={lastName}
+                  />
+                  <MeckerAppInfoPage />
                 </>
               }
             />
