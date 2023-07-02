@@ -9,6 +9,7 @@ const Ti4fStorePage = () => {
         background: `url(${backgroundImage}) no-repeat fixed center`,
         width: "100%",
         height: "100%",
+        padding: "1% 10%",
       }}
     >
       <Ti4fStore />
