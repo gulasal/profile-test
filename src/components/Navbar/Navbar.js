@@ -117,13 +117,16 @@ function NavbarComponent({ image, firstName, lastName }) {
                 {firstName} {lastName}
               </Dropdown.Button>
               <Dropdown.Menu aria-label="Static Actions">
-                <Dropdown.Item key="new">Account</Dropdown.Item>
+                <Dropdown.Item key="Account">Account</Dropdown.Item>
 
-                <Dropdown.Item key="copy">
-                  <Link href="/"> Personal Informationen</Link>
+                <Dropdown.Item key="personalInformation">
+                  <Link css={{ color: "black" }} href="/">
+                    {" "}
+                    Personal Informationen
+                  </Link>
                 </Dropdown.Item>
 
-                <Dropdown.Item key="copy">Log Out</Dropdown.Item>
+                <Dropdown.Item key="logout">Log Out</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           )}
