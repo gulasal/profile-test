@@ -1,11 +1,12 @@
 import { React, useEffect, useState } from "react";
 
-import { Navbar, Dropdown, Avatar, Image } from "@nextui-org/react";
+import { Navbar, Dropdown, Avatar, Image, Link } from "@nextui-org/react";
 import { IoIosMenu } from "react-icons/io";
 import Ti4fLogo from "../../assets/ti4f Analytics Engine.png";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import "./Dropdown.css";
+import "./Navbar.css";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 function NavbarComponent({ image, firstName, lastName }) {
@@ -71,15 +72,22 @@ function NavbarComponent({ image, firstName, lastName }) {
 
       <>
         <Navbar.Content>
-          <Navbar.Link isActive href="/ti4f-store">
+          <Navbar.Link className="navbar-link" href="/ti4f-store">
             {t("ti4f-store")}
           </Navbar.Link>
-          <Navbar.Link href="my-apps">{t("my-apps")}</Navbar.Link>
-          <Navbar.Link href="data-center">{t("data-center")}</Navbar.Link>
+          <Navbar.Link className="navbar-link" href="my-apps">
+            {t("my-apps")}
+          </Navbar.Link>
+          <Navbar.Link className="navbar-link" href="data-center">
+            {t("data-center")}
+          </Navbar.Link>
         </Navbar.Content>
 
         <Navbar.Content gap="0">
-          <nav style={{ display: "flex", alignItems: "center" }}>
+          <nav
+            style={{ display: "flex", alignItems: "center" }}
+            className="navbar-link"
+          >
             <select
               className="Dropdown"
               value={localStorage.getItem("i18nextLng")}
@@ -92,7 +100,7 @@ function NavbarComponent({ image, firstName, lastName }) {
               style={{ marginRight: "1rem", fontSize: "1.2rem" }}
             />
           </nav>
-          <Navbar.Link>
+          <Navbar.Link className="navbar-link">
             <Avatar
               squared
               src={image}
@@ -101,11 +109,20 @@ function NavbarComponent({ image, firstName, lastName }) {
           </Navbar.Link>
           {!isTabletOrPhone && (
             <Dropdown>
-              <Dropdown.Button color="light" css={{ backgroundColor: "white" }}>
+              <Dropdown.Button
+                className="navbar-link"
+                color="light"
+                css={{ backgroundColor: "white" }}
+              >
                 {firstName} {lastName}
               </Dropdown.Button>
               <Dropdown.Menu aria-label="Static Actions">
                 <Dropdown.Item key="new">Account</Dropdown.Item>
+
+                <Dropdown.Item key="copy">
+                  <Link href="/"> Personal Informationen</Link>
+                </Dropdown.Item>
+
                 <Dropdown.Item key="copy">Log Out</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

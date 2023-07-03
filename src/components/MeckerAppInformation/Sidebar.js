@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { Col, Image, Text, Link, Button } from "@nextui-org/react";
+import { Col, Image, Text, Button } from "@nextui-org/react";
 import mecker from "../Ti4f-Store/images/MeckerApp.png";
 import { AiOutlineAppstoreAdd, AiOutlineCopy } from "react-icons/ai";
 import "./style.css";
@@ -12,6 +12,18 @@ const Sidebar = ({ showPopup, setShowPopup, togglePopup }) => {
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        alert("Text copied to clipboard");
+      })
+      .catch((error) => {
+        alert("Error copying text to clipboard:", error);
+      });
+  };
+
   return (
     <div
       style={{
@@ -81,7 +93,10 @@ const Sidebar = ({ showPopup, setShowPopup, togglePopup }) => {
             <AiOutlineAppstoreAdd />
             hinzufugen
           </button>
-          <button className="button">
+          <button
+            className="button"
+            onClick={() => copyToClipboard("https://www.example.com")}
+          >
             <AiOutlineCopy />
             Link kopieren
           </button>
